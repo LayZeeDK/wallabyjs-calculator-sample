@@ -1,6 +1,4 @@
-var Calculator = function() {
-
-};
+function Calculator() {};
 
 Calculator.prototype.add = function(a, b) {
   if (a === 0) return b;
@@ -25,3 +23,5 @@ Calculator.prototype.divide = function(a, b) {
   if (b === 0) throw new Error('Attempt to divide by zero');
   return a / b;
 };
+
+module.exports = Calculator;

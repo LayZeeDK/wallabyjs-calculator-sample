@@ -1,17 +1,19 @@
 module.exports = () => {
   return {
     files: [
-      'style/calculator.css',
-      {pattern: 'lib/jquery.js', instrument: false},
-      'src/*.js',
-      'test/helper/template.js'
+      {pattern: 'node_modules/chai/chai.js', instrument: false},
+      'src/**/*.js',
     ],
     tests: [
-      'test/*Spec.js'
+      'test/**/*.spec.js',
     ],
     env: {
-      kind: 'chrome'
+      type: 'node',
+      runner: 'node',
     },
-    debug: true
+    testFramework: 'mocha',
+    setup: function() {
+      global.expect = chai.expect;
+    },
   };
 };
